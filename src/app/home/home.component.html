@@ -1,0 +1,157 @@
+<div class="container">
+
+  <div class="row">
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <form>
+        <div class="row">
+          <div class="col-sm-9">
+            <mat-form-field class="example-full-width">
+              <input name="search" matInput #movie_name placeholder="Search Movies" [(ngModel)]="movie">
+            </mat-form-field>
+            <!-- <input type="text" #movie_name class="form-control" placeholder="Search Movies" name="movie" > -->
+          </div>
+          <div class="col-sm-3">
+            <button mat-raised-button color="primary" (click)="searchMovies(movie_name.value)">Search</button>
+
+            <!-- <button class="btn-block btn-info form-control" >Search</button> -->
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- <div class="row">
+    <div class="col-sm-4" *ngFor="let movie of search_result; let i = index">
+      <div *ngIf="i < 9">
+        <div class="card mt-3 mb-3">
+          <div class="card-header text-center">
+            {{ movie.release_date | date:'mediumDate':'yyyy' }}
+          </div>
+          <div class="card-body">
+            <img class="card-img-top img-fluid" src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}"
+              alt="{{ movie.original_title }}" style="height: 460px">
+            <p class="text-center">{{ movie.original_title }}</p>
+            <button class="btn btn-block btn-info" (click)="movieById(movie.id)"> Movie details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+
+  <div class="row">
+    <div class="col-sm-4" *ngFor="let movie of search_result; let i = index">
+      <div *ngIf="i < 9">
+
+          <mat-card class="example-card">
+              <img class="card-image" mat-card-image src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}">
+              <mat-card-content>
+                <p style="font-size: small">
+                  {{ movie.original_title }}
+                </p>
+                <p>{{ movie.release_date | date:'mediumDate' }}</p>
+              </mat-card-content>
+              <mat-card-actions>
+                <button mat-raised-button color="primary" (click)="movieById(movie.id)">Movie Details</button>
+              </mat-card-actions>
+            </mat-card>
+
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Upcoming Movies</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4" *ngFor="let upcoming of upcoming_movies; let i = index">
+
+      <mat-card class="example-card">
+        <img class="card-image" mat-card-image src="https://image.tmdb.org/t/p/w500/{{ upcoming.poster_path }}">
+        <mat-card-content>
+          <p style="font-size: small">
+            {{ upcoming.original_title }}
+          </p>
+          <p>{{ upcoming.release_date | date:'mediumDate' }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" (click)="movieById(upcoming.id)">Movie Details</button>
+          <!-- <button mat-button>SHARE</button> -->
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+
+  <!-- <div class="row">
+    <div class="col-sm-4" *ngFor="let upcoming of upcoming_movies; let i = index">
+      <div *ngIf="i < 9">
+        <div class="card mt-3 mb-3">
+          <div class="card-header text-center">
+            {{ upcoming.release_date | date:'mediumDate' }}
+          </div>
+          <div class="card-body">
+            <img class="card-img-top img-fluid" src="https://image.tmdb.org/t/p/w500/{{ upcoming.poster_path }}"
+              alt="{{ upcoming.original_title }}" style="height: 460px">
+            <p class="text-center">{{ upcoming.original_title }}</p>
+            <button class="btn btn-block btn-info" (click)="movieById(upcoming.id)"> Movie details</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <hr>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Popular Movies</h1>
+    </div>
+  </div>
+
+  <!-- <div class="row">
+    <div class="col-sm-4" *ngFor="let popular of popular_movies; let i = index">
+      <div *ngIf="i < 9">
+        <div class="card mt-3 mb-3">
+          <div class="card-header text-center">
+            {{ popular.release_date | date:'mediumDate' }}
+          </div>
+          <div class="card-body">
+            <img class="card-img-top img-fluid" src="https://image.tmdb.org/t/p/w500/{{ popular.poster_path }}"
+              alt="{{ popular.original_title }}" style="height: 460px">
+            <p class="text-center">{{ popular.original_title }}</p>
+            <a routerLink="/movie/{{ popular.id }}" href="#" class="btn btn-block btn-info">Movie Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="row">
+    <div class="col-sm-4" *ngFor="let popular of popular_movies; let i = index">
+
+      <mat-card class="example-card">
+        <img class="card-image" mat-card-image src="https://image.tmdb.org/t/p/w500/{{ popular.poster_path }}">
+        <mat-card-content>
+          <p style="font-size: small">
+            {{ popular.original_title }}
+          </p>
+          <p>{{ popular.release_date | date:'mediumDate' }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" (click)="movieById(popular.id)">Movie Details</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+
+</div>

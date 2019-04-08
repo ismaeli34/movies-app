@@ -1,0 +1,27 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<app-header ></app-header>
+
+<!-- <app-login></app-login> -->
+
+<div class="fixed-header">
+    <mat-drawer-container class="example-container" autosize>
+        <mat-drawer  #drawer class="example-sidenav" mode="side">
+                <mat-list >
+                        <mat-list-item style="cursor:pointer" (click)="navigateMenu(menu.name)" *ngFor="let menu of menus">
+                          <mat-icon mat-list-icon>{{menu.icon}}</mat-icon>
+                          <h4 mat-line>{{menu.name}}</h4>
+                            </mat-list-item>
+                            
+                      </mat-list>
+    
+                      
+        </mat-drawer>
+        <div class="top">
+          <router-outlet></router-outlet>
+        </div>
+        </mat-drawer-container>
+    
+     
+    </div>
+    
